@@ -2083,7 +2083,7 @@ static void LoggerMessageAddTimestampAndThreadID(CFMutableDataRef encoder)
 			name = [threadDict objectForKey:@"__$NSLoggerThreadName$__"];
 			if (name == nil)
 			{
-				@autoreleasepool {
+				//@autoreleasepool {
 					// optimize CPU use by computing the thread name once and storing it back
 					// in the thread dictionary
 					name = [thread description];
@@ -2095,7 +2095,7 @@ static void LoggerMessageAddTimestampAndThreadID(CFMutableDataRef encoder)
 																							   [name length] - range.location - range.length - 1)]];
 						[threadDict setObject:name forKey:@"__$NSLoggerThreadName$__"];
 					}
-				}
+				//}
 			}
 		}
 		if (name != nil)
